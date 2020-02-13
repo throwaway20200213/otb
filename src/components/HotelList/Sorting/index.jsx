@@ -4,19 +4,20 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import SortItem from './SortItem';
 import { applySorting } from './../../../actions/sorting';
+import { SORT_TYPES } from './../../../constants/filters';
 
 const items = [
   {
-    type: 'alphabetically',
+    type: SORT_TYPES.ALPHABETICAL,
     hasSortByLabel: false,
     icon: 'fa-sort-alpha-down'
   },
   {
-    type: 'price',
+    type: SORT_TYPES.PRICE,
     icon: 'fa-pound-sign'
   },
   {
-    type: 'star rating',
+    type: SORT_TYPES.STAR_RATING,
     icon: 'fa-star'
   }
 ]
