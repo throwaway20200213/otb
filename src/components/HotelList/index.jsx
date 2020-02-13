@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Filters from './Filters';
+import Sorting from './Sorting';
 import List from './List';
 
 const HotelList = () => {
   return (
     <div className="row">
       <div className="col-4">
-        <Filters/>
+        <Sorting/>
       </div>
       <div className="col-8">
         <List/>

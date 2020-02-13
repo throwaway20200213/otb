@@ -1,12 +1,13 @@
 import React from 'react';
 
 import Icon from '../../../Common/Icon';
+import './sort.css';
 
-const Filter = ({ type, isActive, hasSortByLabel, icon }) => (
-  <li className={`list-group-item  ${isActive && 'active'}`}>
+const SortItem = ({ type, isActive, hasSortByLabel, icon, onClick = () => {} }) => (
+  <li className={`list-group-item sort-item  ${isActive && 'active'}`} onClick={() => onClick(type)}>
     {`sort ${hasSortByLabel !== false ? 'by' : ''}`} <span className='font-weight-bold'>{type}</span>
     {icon && <div className={`float-right ${!isActive && 'text-muted'}`}><Icon icon={icon} /></div>}
   </li>
 )
 
-export default Filter;
+export default SortItem;
