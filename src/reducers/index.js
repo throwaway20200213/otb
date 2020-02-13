@@ -28,30 +28,30 @@ const hotels = [{
   overview: "This is the third hotel"
 }];
 
+const sortHotels = (hotels, filterBy) => {
+  switch (filterBy) {
+    case SORT_TYPES.ALPHABETICAL:
+      return _sortBy(hotels, hotel => hotel.name);
+
+    case SORT_TYPES.PRICE:
+      return _sortBy(hotels, hotel => -hotel.price); // negative for descending price
+
+    case SORT_TYPES.STAR_RATING:
+      return _sortBy(hotels, hotel => -hotel.starRating);
+
+    default: return hotels;
+  }
+};
+
 const initialState = {
-  sortBy: SORT_TYPES.ALPHABETICAL,
-  hotels
+  sortBy: SORT_TYPES.PRICE,
+  hotels: sortHotels(hotels, SORT_TYPES.PRICE)
 };
 
 export default function (state = initialState, action) {
   if (action.type === APPLY_SORTING) {
-    const sortHotels = (filter) => {
-      const {hotels} = state;
-      switch(filter) {
-        case SORT_TYPES.ALPHABETICAL:
-          return _sortBy(hotels, hotel => hotel.name);
-
-        case SORT_TYPES.PRICE:
-          return _sortBy(hotels, hotel => -hotel.price); // negative for descending price
-
-        case SORT_TYPES.STAR_RATING:
-          return _sortBy(hotels, hotel => -hotel.starRating);
-
-        default: return hotels;
-      }
-    }
-
-    const newHotelOrder = sortHotels(action.payload);
+    const {hotels} = state;
+    const newHotelOrder = sortHotels(hotels, action.payload);
 
     return {
       sortBy: action.payload,
