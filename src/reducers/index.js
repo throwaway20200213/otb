@@ -36,15 +36,16 @@ const initialState = {
 export default function (state = initialState, action) {
   if (action.type === APPLY_SORTING) {
     const sortHotels = (filter) => {
+      const {hotels} = state;
       switch(filter) {
         case SORT_TYPES.ALPHABETICAL:
           return _sortBy(hotels, hotel => hotel.name);
 
         case SORT_TYPES.PRICE:
-          return _sortBy(hotels, hotel => hotel.price);
+          return _sortBy(hotels, hotel => -hotel.price); // negative for descending price
 
         case SORT_TYPES.STAR_RATING:
-          return _sortBy(hotels, hotel => hotel.starRating);
+          return _sortBy(hotels, hotel => -hotel.starRating);
 
         default: return hotels;
       }
