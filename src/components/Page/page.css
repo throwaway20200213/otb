@@ -1,9 +1,8 @@
 .Page {
-  text-align: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-  padding-top: 40px;
+  padding: 40px;
 }
 
