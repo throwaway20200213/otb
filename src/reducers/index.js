@@ -9,7 +9,7 @@ const hotels = [{
   location: 'Costa Adeje, Tenerife',
   starRating: 5,
   price: 113650,
-  overview: "This is the first hotel"
+  description: "This is the first hotel"
 },
 {
   id: 2,
@@ -17,7 +17,7 @@ const hotels = [{
   location: 'Costa Adeje, Tenerife',
   starRating: 3,
   price: 69680,
-  overview: "This is the second hotel"
+  description: "This is the second hotel"
 },
 {
   id: 3,
@@ -25,7 +25,7 @@ const hotels = [{
   location: 'Costa Adeje, Tenerife',
   starRating: 4,
   price: 49999,
-  overview: "This is the third hotel"
+  description: "This is the third hotel"
 }];
 
 const sortHotels = (hotels, filterBy) => {
